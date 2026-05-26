@@ -45,7 +45,9 @@ npm run db:migrate            # prisma migrate dev (needs a running MySQL)
 | `npm run build` | Production build |
 | `npm run start` | Serve the production build |
 | `npm run lint` | ESLint |
-| `npm run test` | Run Vitest unit tests |
+| `npm run test` | Run Vitest unit + component tests |
+| `npm run smoke` | Hit every route + SEO endpoint against a running server |
+| `npm run e2e` | Playwright browser tests (run `npx playwright install` first) |
 
 ## Routes
 
@@ -74,10 +76,23 @@ npm run db:migrate            # prisma migrate dev (needs a running MySQL)
   code-split per length so only the active board's dictionary loads.
 - **Stats & settings** persist per-browser in `localStorage`.
 
-## Localization status
+## Testing
 
-UI infrastructure supports all 13 locales (EN-US, EN-UK, ES, FR, DE, PT, IT, NL,
-RU, PL, SV, TR, ID). English is complete; ES/FR/DE/PT have translated navigation,
-and the remaining locales fall back to English copy pending translation. Word
-lists currently ship for English; other locales reuse the English dictionary
-until localized word data is added under `src/data/words/<locale>/`.
+- **Unit + component** (`npm run test`, Vitest): scoring engine, daily-word
+  determinism, share output, solver, spin-off logic, multiplayer room store, and
+  a JSDOM component test that renders the real game and simulates typing,
+  scoring, an invalid-word toast, and a win that records stats.
+- **Route + SEO smoke** (`npm run smoke`): every page, all 13 locale homes, all
+  length variants, custom/archive/multiplayer flows, and the SEO endpoints.
+- **Browser e2e** (`npm run e2e`, Playwright): gameplay, dark-mode toggle,
+  language switcher, and multiplayer in a real browser.
+
+## Localization
+
+All 13 locales ship **complete UI translations** (EN-US, EN-UK, ES, FR, DE, PT,
+IT, NL, RU, PL, SV, TR, ID) under `src/lib/i18n/messages/`. Each page emits
+localized metadata plus `hreflang` alternates for every locale.
+
+Word **lists** currently ship for English only; other locales reuse the English
+dictionary until localized word data is added under `src/data/words/<locale>/`
+(the loader in `src/lib/words.ts` already maps locales to data sets).
