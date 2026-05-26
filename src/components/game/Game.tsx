@@ -6,6 +6,7 @@ import { useUI } from "@/components/layout/ui-context";
 import { useSettings } from "@/components/settings/SettingsProvider";
 import type { GameMode } from "@/lib/wordle/types";
 import { todayKey } from "@/lib/wordle/daily";
+import { getKeyboardLayout } from "@/lib/i18n/keyboards";
 import { recordResult } from "@/lib/stats";
 import { buildShareText } from "@/lib/share";
 import { Board } from "./Board";
@@ -146,6 +147,7 @@ export function Game(props: GameProps) {
         onEnter={game.submit}
         onDelete={game.remove}
         enterLabel={t.game.enter}
+        rows={getKeyboardLayout(locale)}
       />
     </div>
   );

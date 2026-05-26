@@ -2,7 +2,7 @@
 
 import type { LetterState } from "@/lib/wordle/types";
 
-const ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+const DEFAULT_ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
 interface KeyboardProps {
   keyStates: Record<string, LetterState>;
@@ -10,6 +10,8 @@ interface KeyboardProps {
   onEnter: () => void;
   onDelete: () => void;
   enterLabel: string;
+  /** Locale-specific keyboard rows; defaults to English QWERTY. */
+  rows?: string[];
 }
 
 export function Keyboard({
@@ -18,12 +20,14 @@ export function Keyboard({
   onEnter,
   onDelete,
   enterLabel,
+  rows = DEFAULT_ROWS,
 }: KeyboardProps) {
+  const lastRow = rows.length - 1;
   return (
-    <div className="mx-auto w-full max-w-[500px] select-none px-1 pb-3">
-      {ROWS.map((row, i) => (
-        <div key={i} className="mb-1.5 flex justify-center gap-1.5">
-          {i === 2 && (
+    <div className="mx-auto w-full max-w-[560px] select-none px-1 pb-3">
+      {rows.map((row, i) => (
+        <div key={i} className="mb-1.5 flex justify-center gap-1 sm:gap-1.5">
+          {i === lastRow && (
             <button
               className="key flex-[1.5] text-xs"
               onClick={onEnter}
@@ -32,7 +36,7 @@ export function Keyboard({
               {enterLabel}
             </button>
           )}
-          {row.split("").map((ch) => (
+          {[...row].map((ch) => (
             <button
               key={ch}
               className="key flex-1 text-sm"
@@ -43,7 +47,7 @@ export function Keyboard({
               {ch}
             </button>
           ))}
-          {i === 2 && (
+          {i === lastRow && (
             <button
               className="key flex-[1.5]"
               onClick={onDelete}

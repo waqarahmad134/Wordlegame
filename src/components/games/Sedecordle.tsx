@@ -8,6 +8,7 @@ import { scoreGuess } from "@/lib/wordle/engine";
 import type { ScoredLetter } from "@/lib/wordle/types";
 import { getRandomWord } from "@/lib/wordle/daily";
 import { isValidGuess, loadWordList } from "@/lib/words";
+import { getKeyboardLayout, isLetterKey } from "@/lib/i18n/keyboards";
 
 const BOARDS = 16;
 const LENGTH = 5;
@@ -139,11 +140,11 @@ export function Sedecordle() {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "Enter") submit();
       else if (e.key === "Backspace") remove();
-      else if (/^[a-zA-Z]$/.test(e.key)) type(e.key);
+      else if (isLetterKey(locale, e.key)) type(e.key);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [submit, remove, type]);
+  }, [submit, remove, type, locale]);
 
   const solvedCount = solutions.filter((s) => guesses.includes(s)).length;
 
@@ -188,6 +189,7 @@ export function Sedecordle() {
         onEnter={submit}
         onDelete={remove}
         enterLabel={t.game.enter}
+        rows={getKeyboardLayout(locale)}
       />
     </div>
   );

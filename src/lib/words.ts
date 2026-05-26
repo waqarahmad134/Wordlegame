@@ -14,6 +14,10 @@ const SUPPORTED_DATA_LOCALES = new Set([
   "nl",
   "pt",
   "id",
+  "ru",
+  "pl",
+  "sv",
+  "tr",
 ]);
 
 function dataLocale(locale: string): string {

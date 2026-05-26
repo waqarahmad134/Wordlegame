@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { dayNumber, getDailyWord, todayKey } from "./daily";
 import { isValidGuess } from "../words";
+import { getAlphabet } from "../i18n/keyboards";
 
 describe("daily word selection", () => {
   it("produces a stable date key", () => {
@@ -29,6 +30,16 @@ describe("daily word selection", () => {
     for (const loc of ["es", "fr", "de", "it", "nl", "pt", "id"]) {
       const { word } = await getDailyWord(loc, 5, "2025-03-10");
       expect(word).toMatch(/^[a-z]{5}$/);
+      expect(await isValidGuess(loc, 5, word)).toBe(true);
+    }
+  });
+
+  it("produces valid native words for non-Latin alphabets", async () => {
+    for (const loc of ["ru", "pl", "sv", "tr"]) {
+      const { word } = await getDailyWord(loc, 5, "2025-03-10");
+      const alphabet = getAlphabet(loc);
+      expect([...word]).toHaveLength(5);
+      expect([...word].every((ch) => alphabet.has(ch))).toBe(true);
       expect(await isValidGuess(loc, 5, word)).toBe(true);
     }
   });

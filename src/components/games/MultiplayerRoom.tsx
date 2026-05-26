@@ -7,6 +7,7 @@ import { Toast } from "@/components/game/Toast";
 import { deriveKeyStates } from "@/lib/wordle/engine";
 import type { LetterState, ScoredLetter } from "@/lib/wordle/types";
 import { maxGuessesForLength } from "@/lib/config";
+import { getKeyboardLayout, isLetterKey } from "@/lib/i18n/keyboards";
 
 interface PlayerView {
   id: string;
@@ -68,7 +69,7 @@ function stateColor(s?: LetterState): string {
 }
 
 export function MultiplayerRoom({ code }: { code: string }) {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const [nickname, setNickname] = useState("");
   const [joined, setJoined] = useState(false);
   const [playerId, setPlayerId] = useState<string | null>(null);
@@ -148,11 +149,11 @@ export function MultiplayerRoom({ code }: { code: string }) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "Enter") submit();
       else if (e.key === "Backspace") remove();
-      else if (/^[a-zA-Z]$/.test(e.key)) type(e.key);
+      else if (isLetterKey(locale, e.key)) type(e.key);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [joined, submit, remove, type]);
+  }, [joined, submit, remove, type, locale]);
 
   if (notFound) {
     return (
@@ -264,6 +265,7 @@ export function MultiplayerRoom({ code }: { code: string }) {
           onEnter={submit}
           onDelete={remove}
           enterLabel={t.game.enter}
+          rows={getKeyboardLayout(locale)}
         />
       </div>
     </div>

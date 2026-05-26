@@ -93,9 +93,16 @@ All 13 locales ship **complete UI translations** (EN-US, EN-UK, ES, FR, DE, PT,
 IT, NL, RU, PL, SV, TR, ID) under `src/lib/i18n/messages/`. Each page emits
 localized metadata plus `hreflang` alternates for every locale.
 
-Native word **lists** ship for **8 languages** — English, Spanish, French,
-German, Italian, Dutch, Portuguese, and Indonesian — under
-`src/data/words/<locale>/` (valid-guess + frequency-ranked answer lists per
-length, normalized to a-z). The remaining locales (RU, PL, SV, TR) reuse the
-English word data for now because their alphabets need non-a-z keyboard support;
-the loader in `src/lib/words.ts` maps each locale to its data set.
+Native word **lists ship for all 13 locales** under `src/data/words/<locale>/`
+(valid-guess + frequency-ranked answer lists per length). Latin a-z locales
+(EN, ES, FR, DE, IT, NL, PT, ID) normalize accents to a-z; the others keep their
+native alphabets and get dedicated on-screen **keyboards + letter sets** defined
+in `src/lib/i18n/keyboards.ts`:
+
+- **RU** — Cyrillic ЙЦУКЕН layout (ё merged into е)
+- **PL** — 32-letter Polish alphabet (ą ć ę ł ń ó ś ź ż, no q/v/x)
+- **SV** — Swedish QWERTY with å ä ö
+- **TR** — 29-letter Turkish alphabet (ç ğ ı ş ö ü, no q/w/x)
+
+A test (`keyboards.test.ts`) asserts every answer-word letter exists on its
+locale's keyboard.

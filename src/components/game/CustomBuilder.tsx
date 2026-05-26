@@ -6,6 +6,7 @@ import { encodeCustomWord } from "@/lib/share";
 import { clampLength } from "@/lib/words";
 import { isValidGuess } from "@/lib/words";
 import { MAX_LENGTH, MIN_LENGTH } from "@/lib/config";
+import { getAlphabet } from "@/lib/i18n/keyboards";
 
 export function CustomBuilder() {
   const { locale, t } = useI18n();
@@ -14,11 +15,15 @@ export function CustomBuilder() {
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
+  const alphabet = getAlphabet(locale);
+  const sanitize = (s: string) =>
+    [...s.toLowerCase()].filter((ch) => alphabet.has(ch)).join("");
+
   const create = async () => {
     setError(null);
     setCopied(false);
-    const w = word.trim().toLowerCase();
-    if (!/^[a-z]+$/.test(w) || w.length < MIN_LENGTH || w.length > MAX_LENGTH) {
+    const w = sanitize(word.trim());
+    if (w.length < MIN_LENGTH || w.length > MAX_LENGTH) {
       setError(t.custom.invalid);
       return;
     }
@@ -47,9 +52,7 @@ export function CustomBuilder() {
       <div className="flex gap-2">
         <input
           value={word}
-          onChange={(e) =>
-            setWord(e.target.value.replace(/[^a-zA-Z]/g, "").toLowerCase())
-          }
+          onChange={(e) => setWord(sanitize(e.target.value))}
           placeholder={t.custom.placeholder}
           maxLength={MAX_LENGTH}
           className="flex-1 rounded border border-[var(--border)] bg-transparent px-3 py-2 lowercase"

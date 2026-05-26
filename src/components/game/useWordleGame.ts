@@ -10,6 +10,7 @@ import {
 import type { GameMode, LetterState, ScoredLetter } from "@/lib/wordle/types";
 import { getDailyWord, getRandomWord, todayKey } from "@/lib/wordle/daily";
 import { isValidGuess, loadWordList } from "@/lib/words";
+import { isLetterKey } from "@/lib/i18n/keyboards";
 
 export interface UseWordleOptions {
   mode: GameMode;
@@ -224,11 +225,11 @@ export function useWordleGame(opts: UseWordleOptions) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "Enter") submit();
       else if (e.key === "Backspace") remove();
-      else if (/^[a-zA-Z]$/.test(e.key)) type(e.key);
+      else if (isLetterKey(locale, e.key)) type(e.key);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [submit, remove, type]);
+  }, [submit, remove, type, locale]);
 
   const keyStates = deriveKeyStates(rows);
 
