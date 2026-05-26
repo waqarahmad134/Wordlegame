@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* Use a class strategy for dark mode + a colorblind variant. */
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant cb (&:where(.colorblind, .colorblind *));
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1b;
+  --muted: #787c7e;
+  --border: #d3d6da;
+  --key-bg: #d3d6da;
+  --key-fg: #1a1a1b;
+  --tile-border: #d3d6da;
+  --tile-border-filled: #878a8c;
+
+  --correct: #6aaa64;
+  --present: #c9b458;
+  --absent: #787c7e;
+  --header-bg: #ffffff;
+  --modal-bg: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.5);
+}
+
+.dark {
+  --bg: #121213;
+  --fg: #ffffff;
+  --muted: #818384;
+  --border: #3a3a3c;
+  --key-bg: #818384;
+  --key-fg: #ffffff;
+  --tile-border: #3a3a3c;
+  --tile-border-filled: #565758;
+
+  --correct: #538d4e;
+  --present: #b59f3b;
+  --absent: #3a3a3c;
+  --header-bg: #121213;
+  --modal-bg: #121213;
+  --overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* Colorblind high-contrast palette (orange / blue). */
+.colorblind {
+  --correct: #f5793a;
+  --present: #85c0f9;
+}
+.colorblind.dark,
+.dark.colorblind {
+  --correct: #f5793a;
+  --present: #85c0f9;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-correct: var(--correct);
+  --color-present: var(--present);
+  --color-absent: var(--absent);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
+  overscroll-behavior: none;
+}
+
+/* ---- Board tiles ---- */
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  user-select: none;
+  border: 2px solid var(--tile-border);
+  color: var(--fg);
+  background: transparent;
+  box-sizing: border-box;
+}
+.tile[data-filled="true"] {
+  border-color: var(--tile-border-filled);
+  animation: pop 100ms ease-in-out;
+}
+.tile[data-state="correct"] {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: #fff;
+}
+.tile[data-state="present"] {
+  background: var(--present);
+  border-color: var(--present);
+  color: #fff;
+}
+.tile[data-state="absent"] {
+  background: var(--absent);
+  border-color: var(--absent);
+  color: #fff;
+}
+.tile[data-reveal="true"] {
+  animation: flip 500ms ease forwards;
+}
+
+/* ---- Keyboard keys ---- */
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  border-radius: 4px;
+  border: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--key-bg);
+  color: var(--key-fg);
+  user-select: none;
+  transition: background 120ms ease;
+}
+.key:active {
+  filter: brightness(0.9);
+}
+.key[data-state="correct"] {
+  background: var(--correct);
+  color: #fff;
+}
+.key[data-state="present"] {
+  background: var(--present);
+  color: #fff;
+}
+.key[data-state="absent"] {
+  background: var(--absent);
+  color: #fff;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
+.shake {
+  animation: shake 600ms;
+}
+@keyframes bounce {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-22px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.bounce {
+  animation: bounce 800ms;
+}

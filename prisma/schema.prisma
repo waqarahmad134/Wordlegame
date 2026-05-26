@@ -1,0 +1,51 @@
+// Prisma schema for the Wordle clone. Backs daily words, custom games,
+// and multiplayer rooms. Single-player modes work without a database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model DailyWord {
+  id     Int      @id @default(autoincrement())
+  locale String
+  length Int
+  date   DateTime @db.Date
+  word   String
+
+  @@unique([locale, length, date])
+}
+
+model CustomGame {
+  id        String   @id @default(cuid())
+  word      String
+  locale    String
+  createdAt DateTime @default(now())
+  plays     Int      @default(0)
+}
+
+model Room {
+  code      String       @id
+  locale    String
+  length    Int
+  word      String
+  status    String       @default("waiting")
+  createdAt DateTime     @default(now())
+  players   RoomPlayer[]
+}
+
+model RoomPlayer {
+  id       String   @id @default(cuid())
+  roomCode String
+  nickname String
+  guesses  Json     @default("[]")
+  solved   Boolean  @default(false)
+  joinedAt DateTime @default(now())
+  room     Room     @relation(fields: [roomCode], references: [code], onDelete: Cascade)
+
+  @@index([roomCode])
+}
