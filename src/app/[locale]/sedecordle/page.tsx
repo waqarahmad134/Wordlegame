@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { Sedecordle } from "@/components/games/Sedecordle";
+import { pageMetadata } from "@/lib/seo-content";
 
-export const metadata: Metadata = {
-  title: "Sedecordle",
-  description: "Solve 16 Wordle puzzles at the same time in 21 guesses.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata(locale, "/sedecordle");
+}
 
 export default function SedecordlePage() {
   return <Sedecordle />;

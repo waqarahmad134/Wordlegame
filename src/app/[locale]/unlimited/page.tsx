@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { Game } from "@/components/game/Game";
 import { maxGuessesForLength } from "@/lib/config";
+import { pageMetadata } from "@/lib/seo-content";
 
-export const metadata: Metadata = {
-  title: "Wordle Unlimited",
-  description:
-    "Play unlimited Wordle puzzles with no daily limit. A fresh random word every game.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata(locale, "/unlimited");
+}
 
 export default async function UnlimitedPage({
   params,

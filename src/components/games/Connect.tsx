@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { CONNECT_PUZZLES, type ConnectPuzzle } from "@/data/connect";
+import { evaluateSelection } from "@/lib/games/connect";
 
 const GROUP_COLORS = ["#f9df6d", "#a0c35a", "#b0c4ef", "#ba81c5"];
 const MAX_MISTAKES = 4;
@@ -71,8 +72,8 @@ export function Connect() {
   const submit = () => {
     if (selected.length !== 4) return;
     const groups = selected.map((w) => groupOf[w]);
-    const allSame = groups.every((g) => g === groups[0]);
-    if (allSame) {
+    const { correct, oneAway } = evaluateSelection(groups);
+    if (correct) {
       const gi = groups[0];
       const grp = puzzle.groups[gi];
       setSolved((s) => [
@@ -83,10 +84,6 @@ export function Connect() {
       setSelected([]);
       if (solved.length + 1 === 4) setMessage("Solved!");
     } else {
-      // "One away" hint when 3 of 4 share a group.
-      const counts: Record<number, number> = {};
-      groups.forEach((g) => (counts[g] = (counts[g] ?? 0) + 1));
-      const oneAway = Object.values(counts).some((c) => c === 3);
       setMistakes((m) => m + 1);
       setMessage(oneAway ? "One away…" : "Not a group");
       setTimeout(() => setMessage(null), 1200);

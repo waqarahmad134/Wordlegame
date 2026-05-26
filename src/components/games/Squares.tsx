@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { isValidGuess } from "@/lib/words";
 import { useI18n } from "@/components/i18n/I18nProvider";
+import { adjacent, wordScore } from "@/lib/games/squares";
 
 const SIZE = 4;
 // Letter frequency bag for reasonable, vowel-rich boards.
@@ -13,14 +14,6 @@ function randomGrid(): string[] {
   return Array.from({ length: SIZE * SIZE }, () =>
     BAG[Math.floor(Math.random() * BAG.length)].toUpperCase(),
   );
-}
-
-function adjacent(a: number, b: number): boolean {
-  const ra = Math.floor(a / SIZE),
-    ca = a % SIZE;
-  const rb = Math.floor(b / SIZE),
-    cb = b % SIZE;
-  return Math.abs(ra - rb) <= 1 && Math.abs(ca - cb) <= 1 && a !== b;
 }
 
 export function Squares() {
@@ -52,7 +45,7 @@ export function Squares() {
       setPath(path.slice(0, idx + 1));
       return;
     }
-    if (path.length === 0 || adjacent(path[path.length - 1], i)) {
+    if (path.length === 0 || adjacent(path[path.length - 1], i, SIZE)) {
       setPath([...path, i]);
     }
   };
@@ -74,10 +67,11 @@ export function Squares() {
       setPath([]);
       return flash("Not a word");
     }
+    const pts = wordScore(w.length);
     setFound((f) => [w, ...f]);
-    setScore((s) => s + w.length * (w.length - 3)); // longer words score more
+    setScore((s) => s + pts);
     setPath([]);
-    flash(`+${w.length * (w.length - 3)}`);
+    flash(`+${pts}`);
   };
 
   return (

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo-content";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "About Wordle Game and how to play.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata(locale, "/about");
+}
 
 export default function AboutPage() {
   return (

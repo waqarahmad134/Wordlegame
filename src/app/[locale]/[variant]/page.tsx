@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VariantGame } from "@/components/game/VariantGame";
 import { LENGTHS } from "@/lib/config";
+import { buildMetadata } from "@/lib/seo";
 
 function parseLength(variant: string): number | null {
   const m = /^(\d+)-letters$/.exec(variant);
@@ -17,15 +18,17 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ variant: string }>;
+  params: Promise<{ locale: string; variant: string }>;
 }): Promise<Metadata> {
-  const { variant } = await params;
+  const { locale, variant } = await params;
   const length = parseLength(variant);
   if (!length) return {};
-  return {
-    title: `${length} Letter Wordle`,
-    description: `Play the ${length}-letter Wordle puzzle. Daily and unlimited modes.`,
-  };
+  return buildMetadata({
+    locale,
+    path: `/${length}-letters`,
+    title: `${length} Letter Wordle - Daily & Unlimited`,
+    description: `Play the ${length}-letter Wordle puzzle online. Guess the hidden ${length}-letter word with daily and unlimited modes.`,
+  });
 }
 
 export default async function VariantPage({

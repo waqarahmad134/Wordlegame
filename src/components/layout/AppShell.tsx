@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
+import { useI18n } from "@/components/i18n/I18nProvider";
+import { bcp47 } from "@/lib/seo";
 import { SettingsProvider } from "@/components/settings/SettingsProvider";
 import { HelpModal } from "@/components/modals/HelpModal";
 import { SettingsModal } from "@/components/modals/SettingsModal";
@@ -20,6 +23,11 @@ function Modals() {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const { locale } = useI18n();
+  useEffect(() => {
+    document.documentElement.lang = bcp47(locale);
+  }, [locale]);
+
   return (
     <SettingsProvider>
       <UIProvider>

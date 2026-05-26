@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Game } from "@/components/game/Game";
 import { maxGuessesForLength } from "@/lib/config";
 import { decodeCustomWord } from "@/lib/share";
 import { clampLength } from "@/lib/words";
+
+export const metadata: Metadata = {
+  title: "Custom Wordle Challenge",
+  description: "Someone challenged you to a custom Wordle. Can you guess the word?",
+  robots: { index: false, follow: true },
+};
 
 export default async function PlayCustomPage({
   params,

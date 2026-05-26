@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import { LENGTHS, DEFAULT_LENGTH } from "@/lib/config";
 import { loadWordList } from "@/lib/words";
+import { filterWords } from "@/lib/wordle/solver";
 
 export function Solver() {
   const { locale } = useI18n();
@@ -17,30 +18,11 @@ export function Solver() {
   const solve = async () => {
     setLoading(true);
     const { valid } = await loadWordList(locale, length);
-    const pat = pattern.toLowerCase().padEnd(length, "_").slice(0, length);
-    const presentSet = present.toLowerCase().replace(/[^a-z]/g, "").split("");
-    const absentSet = new Set(
-      absent.toLowerCase().replace(/[^a-z]/g, "").split(""),
+    const matches = filterWords(
+      valid,
+      { length, pattern, present, absent },
+      500,
     );
-    // A letter that is green/present must not be treated as fully absent.
-    const knownLetters = new Set([...pat.replace(/_/g, ""), ...presentSet]);
-
-    const matches: string[] = [];
-    for (const w of valid) {
-      if (w.length !== length) continue;
-      let ok = true;
-      for (let i = 0; i < length; i++) {
-        if (pat[i] !== "_" && w[i] !== pat[i]) {
-          ok = false;
-          break;
-        }
-      }
-      if (!ok) continue;
-      if (!presentSet.every((l) => w.includes(l))) continue;
-      if ([...w].some((l) => absentSet.has(l) && !knownLetters.has(l))) continue;
-      matches.push(w);
-      if (matches.length >= 500) break;
-    }
     setResults(matches);
     setLoading(false);
   };

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Solver } from "@/components/game/Solver";
+import { pageMetadata } from "@/lib/seo-content";
 
-export const metadata: Metadata = {
-  title: "Wordle Solver",
-  description:
-    "Wordle solver and helper. Enter your green, yellow and gray clues to find all possible answers.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata(locale, "/solver");
+}
 
 export default function SolverPage() {
   return <Solver />;

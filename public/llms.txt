@@ -1,0 +1,31 @@
+# Wordle Game
+
+> A free, full-stack Wordle hub: daily and unlimited word puzzles, word-length
+> variants (4-11 letters), custom shareable words, real-time multiplayer,
+> spin-off games (Sedecordle, Connect, Squares), a solver, and a daily archive.
+> Available in 13 languages. No account or sign-in required.
+
+## How to play
+
+Guess the hidden word within six tries. After each guess, tiles are colored:
+green (correct letter, correct position), yellow (correct letter, wrong
+position), and gray (letter not in the word).
+
+## Game modes
+
+- [Daily Wordle](/en): one shared 5-letter puzzle per day.
+- [Unlimited](/en/unlimited): endless random puzzles, no daily limit.
+- [Word lengths](/en/5-letters): variants from 4 to 11 letters (e.g. /en/7-letters).
+- [Custom](/en/custom): create your own word and share a link.
+- [Multiplayer](/en/multiplayer): create or join a room and race friends in real time.
+- [Sedecordle](/en/sedecordle): solve 16 boards at once in 21 guesses.
+- [Connect](/en/connect): group 16 words into 4 hidden categories.
+- [Squares](/en/squares): find words in a 4x4 letter grid.
+- [Solver](/en/solver): enter green/yellow/gray clues to find possible answers.
+- [Archive](/en/archive): replay past daily puzzles.
+
+## More
+
+- [About & how to play](/en/about)
+- Languages: English (US/UK), Español, Français, Deutsch, Português, Italiano,
+  Nederlands, Русский, Polski, Svenska, Türkçe, Indonesia.
