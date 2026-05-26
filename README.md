@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wordle Game
 
-## Getting Started
+A full-stack clone of [wordlegame.org](https://wordlegame.org) built with Next.js.
+Daily and unlimited Wordle, word-length variants (4–11), custom shareable words,
+real-time multiplayer, spin-off games (Sedecordle, Connect, Squares), a solver,
+a daily archive, and multi-language support — all anonymous, no sign-in.
 
-First, run the development server:
+See [`PROJECT_PLAN.md`](./PROJECT_PLAN.md) for the full design spec.
+
+## Tech stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** with CSS-variable theming (light / dark / colorblind)
+- **Prisma** ORM targeting **MySQL** (daily words, custom games, multiplayer rooms)
+- Locale-prefixed routing (`/[locale]/...`) for 13 languages
+- Server-Sent Events for live multiplayer
+- **Vitest** unit tests
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env          # set DATABASE_URL for MySQL (optional for single-player)
+npm run dev                   # http://localhost:3000  (redirects to /en)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Single-player modes (daily, unlimited, variants, custom, solver, spin-offs)
+work entirely client-side and need no database. Multiplayer runs on an
+in-memory room store in development; the Prisma/MySQL schema in
+[`prisma/schema.prisma`](./prisma/schema.prisma) is provided for production
+persistence.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Database (optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run db:generate           # prisma generate
+npm run db:migrate            # prisma migrate dev (needs a running MySQL)
+```
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Script | Purpose |
+|---|---|
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run test` | Run Vitest unit tests |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+/[locale]                   Daily 5-letter Wordle
+/[locale]/unlimited         Unlimited random Wordle
+/[locale]/N-letters         Word-length variants (4..11), daily + unlimited
+/[locale]/custom            Create a custom word
+/[locale]/play/[id]         Play a shared custom game
+/[locale]/multiplayer       Create / join a room
+/[locale]/room/[code]       Live multiplayer room
+/[locale]/sedecordle        16 boards at once
+/[locale]/connect           Grouping puzzle
+/[locale]/squares           4x4 word finder
+/[locale]/solver            Wordle solver
+/[locale]/archive           Replay past dailies
+/[locale]/about             About / how to play
+```
 
-## Deploy on Vercel
+## Architecture notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Single scoring engine** (`src/lib/wordle/engine.ts`) is the source of truth
+  for green/yellow/gray feedback and hard-mode validation; every mode and the
+  multiplayer server consume it.
+- **Word data** lives in `src/data/words/en/{len}.{answers,valid}.json` and is
+  code-split per length so only the active board's dictionary loads.
+- **Stats & settings** persist per-browser in `localStorage`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Localization status
+
+UI infrastructure supports all 13 locales (EN-US, EN-UK, ES, FR, DE, PT, IT, NL,
+RU, PL, SV, TR, ID). English is complete; ES/FR/DE/PT have translated navigation,
+and the remaining locales fall back to English copy pending translation. Word
+lists currently ship for English; other locales reuse the English dictionary
+until localized word data is added under `src/data/words/<locale>/`.
