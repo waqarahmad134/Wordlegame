@@ -93,6 +93,9 @@ All 13 locales ship **complete UI translations** (EN-US, EN-UK, ES, FR, DE, PT,
 IT, NL, RU, PL, SV, TR, ID) under `src/lib/i18n/messages/`. Each page emits
 localized metadata plus `hreflang` alternates for every locale.
 
-Word **lists** currently ship for English only; other locales reuse the English
-dictionary until localized word data is added under `src/data/words/<locale>/`
-(the loader in `src/lib/words.ts` already maps locales to data sets).
+Native word **lists** ship for **8 languages** — English, Spanish, French,
+German, Italian, Dutch, Portuguese, and Indonesian — under
+`src/data/words/<locale>/` (valid-guess + frequency-ranked answer lists per
+length, normalized to a-z). The remaining locales (RU, PL, SV, TR) reuse the
+English word data for now because their alphabets need non-a-z keyboard support;
+the loader in `src/lib/words.ts` maps each locale to its data set.

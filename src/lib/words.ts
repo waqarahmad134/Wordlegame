@@ -5,7 +5,16 @@ export type WordList = { answers: string[]; valid: Set<string> };
 const cache = new Map<string, Promise<WordList>>();
 
 /** Locales that ship their own word data. Others fall back to English. */
-const SUPPORTED_DATA_LOCALES = new Set(["en", "es", "fr", "de"]);
+const SUPPORTED_DATA_LOCALES = new Set([
+  "en",
+  "es",
+  "fr",
+  "de",
+  "it",
+  "nl",
+  "pt",
+  "id",
+]);
 
 function dataLocale(locale: string): string {
   const base = locale.toLowerCase().split("-")[0];

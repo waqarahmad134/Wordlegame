@@ -25,8 +25,8 @@ describe("daily word selection", () => {
     expect(six.word).toHaveLength(6);
   });
 
-  it("loads localized word data for es/fr/de", async () => {
-    for (const loc of ["es", "fr", "de"]) {
+  it("loads localized word data for all native-word locales", async () => {
+    for (const loc of ["es", "fr", "de", "it", "nl", "pt", "id"]) {
       const { word } = await getDailyWord(loc, 5, "2025-03-10");
       expect(word).toMatch(/^[a-z]{5}$/);
       expect(await isValidGuess(loc, 5, word)).toBe(true);
