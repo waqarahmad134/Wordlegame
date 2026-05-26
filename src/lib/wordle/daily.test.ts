@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { dayNumber, getDailyWord, todayKey } from "./daily";
+import { isValidGuess } from "../words";
 
 describe("daily word selection", () => {
   it("produces a stable date key", () => {
@@ -22,5 +23,13 @@ describe("daily word selection", () => {
     const six = await getDailyWord("en", 6, "2025-03-10");
     expect(five.word).toHaveLength(5);
     expect(six.word).toHaveLength(6);
+  });
+
+  it("loads localized word data for es/fr/de", async () => {
+    for (const loc of ["es", "fr", "de"]) {
+      const { word } = await getDailyWord(loc, 5, "2025-03-10");
+      expect(word).toMatch(/^[a-z]{5}$/);
+      expect(await isValidGuess(loc, 5, word)).toBe(true);
+    }
   });
 });
