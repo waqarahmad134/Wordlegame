@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Game } from "@/components/game/Game";
+import { HomeContent } from "@/components/home/HomeContent";
 import { maxGuessesForLength } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo-content";
-import { homeJsonLd } from "@/lib/jsonld";
+import { homeJsonLd, faqJsonLd } from "@/lib/jsonld";
+import { getHomeContent } from "@/lib/home-content";
 
 export async function generateMetadata({
   params,
@@ -20,11 +22,16 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const length = 5;
+  const content = getHomeContent(locale);
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd(locale)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(content.faq)) }}
       />
       <Game
         mode="daily"
@@ -32,6 +39,7 @@ export default async function HomePage({
         maxGuesses={maxGuessesForLength(length)}
         title="Wordle"
       />
+      <HomeContent locale={locale} />
     </>
   );
 }

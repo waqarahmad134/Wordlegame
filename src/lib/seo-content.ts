@@ -33,6 +33,26 @@ export const SEO_COPY: Record<string, Copy> = {
     description:
       "Solve 16 Wordle puzzles simultaneously in 21 guesses. The ultimate word-guessing challenge.",
   },
+  "/dordle": {
+    title: "Dordle - Solve 2 Wordles at Once",
+    description:
+      "Play Dordle and solve two Wordle puzzles at the same time in 7 guesses. Every letter you type lands on both boards.",
+  },
+  "/quordle": {
+    title: "Quordle - Solve 4 Wordles at Once",
+    description:
+      "Play Quordle and solve four Wordle puzzles in parallel in 9 guesses. A four-board word challenge.",
+  },
+  "/octordle": {
+    title: "Octordle - Solve 8 Wordles at Once",
+    description:
+      "Play Octordle and solve eight Wordle puzzles in parallel in 13 guesses. An eight-board word challenge.",
+  },
+  "/spellbee": {
+    title: "SpellBee - Make Words From 7 Letters",
+    description:
+      "Make as many words as you can from the seven puzzle letters. Every word must include the centre letter. Find the pangram for a bonus.",
+  },
   "/connect": {
     title: "Connect - Group the Words",
     description:
@@ -57,6 +77,16 @@ export const SEO_COPY: Record<string, Copy> = {
     title: "About & How to Play Wordle",
     description:
       "Learn how to play Wordle, the rules, the color clues, and all the game modes available on Wordle Game.",
+  },
+  "/privacy": {
+    title: "Privacy Policy - Wordle Game",
+    description:
+      "How Wordle Game handles your data. Game progress and settings are stored locally in your browser.",
+  },
+  "/terms": {
+    title: "Terms of Use - Wordle Game",
+    description:
+      "The terms of use for Wordle Game, a free fan-made word puzzle site.",
   },
 };
 

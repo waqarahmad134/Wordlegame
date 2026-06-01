@@ -6,7 +6,11 @@ export interface Dictionary {
     wordLengths: string;
     custom: string;
     multiplayer: string;
+    dordle: string;
+    quordle: string;
+    octordle: string;
     sedecordle: string;
+    spellbee: string;
     connect: string;
     squares: string;
     solver: string;

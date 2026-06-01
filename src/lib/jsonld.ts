@@ -28,6 +28,19 @@ export function homeJsonLd(locale: string) {
   };
 }
 
+/** FAQPage structured data — feed it the FAQ rendered on the page. */
+export function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
+}
+
 /** Breadcrumb structured data for sub-pages. */
 export function breadcrumbJsonLd(
   locale: string,

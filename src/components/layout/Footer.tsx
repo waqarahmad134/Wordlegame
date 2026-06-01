@@ -24,6 +24,12 @@ export function Footer() {
         <Link href={p("/about")} className="hover:underline">
           {t.nav.about}
         </Link>
+        <Link href={p("/privacy")} className="hover:underline">
+          Privacy
+        </Link>
+        <Link href={p("/terms")} className="hover:underline">
+          Terms
+        </Link>
       </nav>
       <p>© {new Date().getFullYear()} Wordle Game. Inspired by the classic word puzzle.</p>
     </footer>

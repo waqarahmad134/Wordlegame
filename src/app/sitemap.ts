@@ -9,11 +9,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/custom",
     "/multiplayer",
     "/sedecordle",
+    "/dordle",
+    "/quordle",
+    "/octordle",
+    "/spellbee",
     "/connect",
     "/squares",
     "/solver",
     "/archive",
     "/about",
+    "/privacy",
+    "/terms",
     ...LENGTHS.map((n) => `/${n}-letters`),
   ];
   const entries: MetadataRoute.Sitemap = [];
