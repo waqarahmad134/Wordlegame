@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const fr: HomeContent = {
-  h1: "Wordle – Le jeu ultime de devinette de mots",
+  h1: "Wordle: Le jeu ultime de devinette de mots",
   intro:
     "Wordle est un puzzle quotidien dans lequel vous avez six essais pour deviner un mot caché de cinq lettres. Après chaque essai, les cases changent de couleur pour indiquer votre proximité : vert pour une lettre à la bonne place, jaune pour une lettre présente dans le mot mais à un autre endroit, et gris pour une lettre absente du mot. Une nouvelle énigme est publiée chaque jour, et tout le monde joue le même mot.",
   howToTitle: "Comment jouer à Wordle",
@@ -35,7 +35,7 @@ export const fr: HomeContent = {
     { title: "Commencez par un mot solide", body: "Choisissez un mot qui couvre plusieurs lettres courantes : un mélange équilibré de voyelles et de consonnes fréquentes donne le plus d'information en un seul essai." },
     { title: "Faites attention à la position", body: "Une case jaune vous dit que la lettre est dans le mot, mais pas là où vous l'avez placée. Essayez une autre position au prochain coup et gardez la liste en tête." },
     { title: "Ne réutilisez pas les lettres grises", body: "Quand une lettre est grise, vous l'avez écartée totalement. Brûler un essai sur un mot qui la contient n'est qu'une perte de tour." },
-    { title: "Repérez les motifs", body: "Une langue regorge de formes récurrentes — terminaisons fréquentes, préfixes habituels — et les remarquer verrouille souvent les dernières cases." },
+    { title: "Repérez les motifs", body: "Une langue regorge de formes récurrentes, comme des terminaisons fréquentes et des préfixes habituels, et les remarquer verrouille souvent les dernières cases." },
     { title: "Privilégiez les mots familiers", body: "Quand plusieurs lettres conviennent, penchez pour des mots de tous les jours. La réponse n'est presque jamais obscure." },
     { title: "Écartez tôt des groupes de lettres", body: "Utilisez votre deuxième ou troisième essai pour tester de nouvelles lettres même si cela ne peut pas gagner. Éliminer cinq lettres supplémentaires en vaut souvent la peine." },
     { title: "Restez calme et réfléchissez", body: "Pas de chronomètre. Ralentissez sur les deux derniers essais et passez en revue les candidats restants avant de valider." },

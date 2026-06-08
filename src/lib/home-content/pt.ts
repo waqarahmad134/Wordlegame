@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const pt: HomeContent = {
-  h1: "Wordle – O jogo definitivo de adivinhar palavras",
+  h1: "Wordle: O jogo definitivo de adivinhar palavras",
   intro:
     "Wordle é um quebra-cabeça diário em que você tem seis tentativas para adivinhar uma palavra oculta de cinco letras. Após cada tentativa, as casas mudam de cor para mostrar o quanto você se aproximou: verde para uma letra na posição certa, amarelo para uma letra que está na palavra mas em outro lugar, e cinza para uma letra que não está na palavra. Todos os dias um quebra-cabeça novo é publicado e todo mundo joga a mesma palavra.",
   howToTitle: "Como jogar Wordle",
@@ -35,7 +35,7 @@ export const pt: HomeContent = {
     { title: "Comece com uma palavra forte", body: "Escolha uma palavra que cubra várias letras comuns: uma mistura equilibrada de vogais e consoantes frequentes traz o máximo de informação de um palpite." },
     { title: "Preste atenção à posição", body: "Uma casa amarela diz que a letra está na palavra, só não onde você a colocou. Tente outra posição na próxima e mantenha o controle mental." },
     { title: "Não reutilize letras cinzas", body: "Quando uma letra é cinza, você já a descartou por completo. Queimar um palpite com uma palavra que a contém é só perder o turno." },
-    { title: "Procure padrões de letras", body: "Cada idioma tem muitos padrões recorrentes — terminações comuns, prefixos habituais — e percebê-los costuma travar as últimas casas." },
+    { title: "Procure padrões de letras", body: "Cada idioma tem muitos padrões recorrentes, como terminações comuns e prefixos habituais, e percebê-los costuma travar as últimas casas." },
     { title: "Prefira palavras familiares", body: "Quando várias letras encaixam, escolha palavras do dia a dia. A resposta quase nunca é obscura." },
     { title: "Descarte grupos cedo", body: "Use o segundo ou terceiro palpite para testar letras novas, mesmo que não dê para vencer a rodada. Eliminar mais cinco letras geralmente vale a pena." },
     { title: "Mantenha a calma e pense", body: "Não há cronômetro. Vá com calma nos dois últimos palpites e revise mentalmente os candidatos restantes antes de confirmar." },

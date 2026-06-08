@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Dordle } from "@/components/games/Dordle";
+import { GameArticle } from "@/components/games/GameArticle";
 import { pageMetadata } from "@/lib/seo-content";
 
 export async function generateMetadata({
@@ -11,6 +12,16 @@ export async function generateMetadata({
   return pageMetadata(locale, "/dordle");
 }
 
-export default function DordlePage() {
-  return <Dordle />;
+export default async function DordlePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return (
+    <>
+      <Dordle />
+      <GameArticle slug="dordle" locale={locale} />
+    </>
+  );
 }

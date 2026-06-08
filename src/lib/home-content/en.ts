@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const en: HomeContent = {
-  h1: "Wordle – The Ultimate Word Guessing Game",
+  h1: "Wordle: The Ultimate Word Guessing Game",
   intro:
     "Wordle is a daily word puzzle where you have six tries to guess a hidden five-letter word. After every guess the tiles change color to show how close you are: green for a letter in the right place, yellow for a letter in the word but the wrong place, and gray for a letter that is not in the word at all. A brand-new puzzle unlocks every day, and everyone plays the same word.",
   howToTitle: "How to play Wordle",
@@ -47,10 +47,10 @@ export const en: HomeContent = {
     "Wordle is available in many languages. Each version uses its own dictionary and keyboard layout, so you can play in the one you know best.",
   tipsTitle: "Tips for playing Wordle",
   tips: [
-    { title: "Open with a strong first word", body: "Pick a word that covers several common letters — a balanced mix of vowels and frequent consonants gives you the most information from one guess." },
+    { title: "Open with a strong first word", body: "Pick a word that covers several common letters. A balanced mix of vowels and frequent consonants gives you the most information from one guess." },
     { title: "Pay attention to position", body: "A yellow tile tells you the letter is in the word, just not where you placed it. Try a different slot next time and keep notes in your head." },
     { title: "Do not reuse gray letters", body: "Once a letter is gray you have ruled it out completely. Burning a guess on a word that contains it just wastes a turn." },
-    { title: "Look for letter patterns", body: "English has a lot of recurring shapes — common endings like -ING, -OUND, -IGHT — and watching for them often locks in the last two or three tiles." },
+    { title: "Look for letter patterns", body: "English has a lot of recurring shapes, such as common endings like -ING, -OUND, and -IGHT. Watching for them often locks in the last two or three tiles." },
     { title: "Try familiar word shapes", body: "When several letters fit, lean toward everyday words you would actually say or read. The answer is almost never obscure." },
     { title: "Rule out groups of letters early", body: "Use your second or third guess to test brand-new letters even if it cannot win the round. Eliminating five more letters is usually worth it." },
     { title: "Stay calm and think it through", body: "There is no clock. Slow down on the last two guesses and run through the remaining candidates in your head before committing." },

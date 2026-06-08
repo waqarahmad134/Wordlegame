@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const it: HomeContent = {
-  h1: "Wordle – Il gioco definitivo di indovinare parole",
+  h1: "Wordle: Il gioco definitivo di indovinare parole",
   intro:
     "Wordle è un puzzle quotidiano in cui hai sei tentativi per indovinare una parola nascosta di cinque lettere. Dopo ogni tentativo, le caselle cambiano colore per mostrarti quanto sei vicino: verde per una lettera al posto giusto, giallo per una lettera che è nella parola ma in un'altra posizione, e grigio per una lettera che non c'è affatto. Ogni giorno esce un nuovo puzzle e tutti giochiamo la stessa parola.",
   howToTitle: "Come giocare a Wordle",
@@ -35,7 +35,7 @@ export const it: HomeContent = {
     { title: "Inizia con una parola forte", body: "Scegli una parola che copra più lettere comuni: un mix bilanciato di vocali e consonanti frequenti dà il massimo dell'informazione in un solo tentativo." },
     { title: "Fai attenzione alla posizione", body: "Una casella gialla dice che la lettera c'è, solo non dove l'hai messa. Prova un'altra posizione al prossimo turno e tieni il conto a mente." },
     { title: "Non riutilizzare le lettere grigie", body: "Quando una lettera è grigia l'hai esclusa del tutto. Bruciare un tentativo con una parola che la contiene è solo perdere un turno." },
-    { title: "Cerca pattern di lettere", body: "Ogni lingua ha forme ricorrenti — desinenze comuni, prefissi abituali — e notarle spesso blocca le ultime caselle." },
+    { title: "Cerca pattern di lettere", body: "Ogni lingua ha forme ricorrenti, come desinenze comuni e prefissi abituali, e notarle spesso blocca le ultime caselle." },
     { title: "Prediligi parole familiari", body: "Quando più lettere combaciano, scegli parole d'uso comune. La risposta non è quasi mai oscura." },
     { title: "Escludi gruppi di lettere presto", body: "Usa il secondo o terzo tentativo per testare lettere nuove anche se non vinci la partita. Eliminare cinque lettere in più di solito conviene." },
     { title: "Stai calmo e ragiona", body: "Non c'è cronometro. Rallenta sugli ultimi due tentativi e ripassa mentalmente i candidati rimasti prima di confermare." },

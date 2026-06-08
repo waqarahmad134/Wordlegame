@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CustomBuilder } from "@/components/game/CustomBuilder";
+import { GameArticle } from "@/components/games/GameArticle";
 import { pageMetadata } from "@/lib/seo-content";
 
 export async function generateMetadata({
@@ -11,6 +12,16 @@ export async function generateMetadata({
   return pageMetadata(locale, "/custom");
 }
 
-export default function CustomPage() {
-  return <CustomBuilder />;
+export default async function CustomPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return (
+    <>
+      <CustomBuilder />
+      <GameArticle slug="custom" locale={locale} />
+    </>
+  );
 }

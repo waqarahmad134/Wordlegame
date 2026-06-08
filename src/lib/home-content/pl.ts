@@ -1,9 +1,9 @@
 import type { HomeContent } from "./types";
 
 export const pl: HomeContent = {
-  h1: "Wordle – Najlepsza gra w zgadywanie słów",
+  h1: "Wordle: Najlepsza gra w zgadywanie słów",
   intro:
-    "Wordle to codzienna łamigłówka, w której masz sześć prób, by odgadnąć ukryte pięcioliterowe słowo. Po każdej próbie kafelki zmieniają kolor, pokazując, jak blisko jesteś: zielony oznacza literę we właściwym miejscu, żółty — literę, która jest w słowie, ale w innym miejscu, a szary — literę, której w słowie nie ma w ogóle. Każdego dnia pojawia się nowa zagadka, a wszyscy grają to samo słowo.",
+    "Wordle to codzienna łamigłówka, w której masz sześć prób, by odgadnąć ukryte pięcioliterowe słowo. Po każdej próbie kafelki zmieniają kolor, pokazując, jak blisko jesteś: zielony oznacza literę we właściwym miejscu, żółty oznacza literę, która jest w słowie, ale w innym miejscu, a szary oznacza literę, której w słowie nie ma w ogóle. Każdego dnia pojawia się nowa zagadka, a wszyscy grają to samo słowo.",
   howToTitle: "Jak grać w Wordle",
   howToSteps: [
     { title: "Wpisz pierwszą próbę", body: "Wpisz dowolne poprawne pięcioliterowe słowo i naciśnij Enter. Za zgadywanie nie ma kary, więc wykorzystaj pierwszą próbę do sprawdzenia popularnych liter." },
@@ -32,10 +32,10 @@ export const pl: HomeContent = {
     "Wordle jest dostępny w wielu językach. Każda wersja używa własnego słownika i układu klawiatury, więc możesz grać w tej, którą znasz najlepiej.",
   tipsTitle: "Wskazówki do gry w Wordle",
   tips: [
-    { title: "Zacznij od mocnego słowa", body: "Wybierz słowo zawierające kilka popularnych liter — zrównoważona mieszanka samogłosek i częstych spółgłosek daje najwięcej informacji z jednej próby." },
+    { title: "Zacznij od mocnego słowa", body: "Wybierz słowo zawierające kilka popularnych liter. Zrównoważona mieszanka samogłosek i częstych spółgłosek daje najwięcej informacji z jednej próby." },
     { title: "Zwracaj uwagę na pozycję", body: "Żółty kafelek mówi, że litera jest w słowie, tylko nie tam, gdzie ją umieściłeś. Spróbuj innego miejsca przy kolejnej próbie i zapamiętuj." },
     { title: "Nie używaj ponownie szarych liter", body: "Gdy litera jest szara, całkowicie ją wykluczasz. Marnowanie próby na słowo, które ją zawiera, to po prostu stracony ruch." },
-    { title: "Szukaj wzorców liter", body: "Każdy język ma powtarzające się formy — typowe końcówki, znane przedrostki — a ich zauważanie często blokuje ostatnie kafelki." },
+    { title: "Szukaj wzorców liter", body: "Każdy język ma powtarzające się formy, takie jak typowe końcówki i znane przedrostki, a ich zauważanie często blokuje ostatnie kafelki." },
     { title: "Próbuj znanych słów", body: "Gdy pasuje kilka liter, wybieraj słowa z życia codziennego. Odpowiedź prawie nigdy nie jest niejasna." },
     { title: "Eliminuj grupy liter wcześnie", body: "Wykorzystaj drugą lub trzecią próbę na sprawdzenie nowych liter, nawet jeśli nie możesz wygrać. Wyeliminowanie pięciu kolejnych liter zwykle się opłaca." },
     { title: "Zachowaj spokój i myśl", body: "Nie ma zegara. Zwolnij przy dwóch ostatnich próbach i w głowie przejdź pozostałych kandydatów, zanim potwierdzisz." },

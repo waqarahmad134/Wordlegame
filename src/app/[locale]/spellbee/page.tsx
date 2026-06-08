@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SpellBee } from "@/components/games/SpellBee";
+import { GameArticle } from "@/components/games/GameArticle";
 import { pageMetadata } from "@/lib/seo-content";
 
 export async function generateMetadata({
@@ -11,6 +12,16 @@ export async function generateMetadata({
   return pageMetadata(locale, "/spellbee");
 }
 
-export default function SpellBeePage() {
-  return <SpellBee />;
+export default async function SpellBeePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return (
+    <>
+      <SpellBee />
+      <GameArticle slug="spellbee" locale={locale} />
+    </>
+  );
 }

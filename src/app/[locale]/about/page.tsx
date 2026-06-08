@@ -34,13 +34,13 @@ export default function AboutPage() {
       </ul>
       <h2 className="text-xl font-bold">Game modes</h2>
       <ul className="list-disc space-y-1 pl-6">
-        <li><b>Daily</b> — one shared puzzle every day.</li>
-        <li><b>Unlimited</b> — play as many random puzzles as you like.</li>
-        <li><b>Word Lengths</b> — choose words from 4 to 11 letters.</li>
-        <li><b>Custom</b> — create your own word and share it with friends.</li>
-        <li><b>Multiplayer</b> — race against friends in a shared room.</li>
-        <li><b>Sedecordle, Connect, Squares</b> — fun spin-off word games.</li>
-        <li><b>Solver</b> — get help finding possible answers.</li>
+        <li><b>Daily</b>: one shared puzzle every day.</li>
+        <li><b>Unlimited</b>: play as many random puzzles as you like.</li>
+        <li><b>Word Lengths</b>: choose words from 4 to 11 letters.</li>
+        <li><b>Custom</b>: create your own word and share it with friends.</li>
+        <li><b>Multiplayer</b>: race against friends in a shared room.</li>
+        <li><b>Sedecordle, Connect, Squares</b>: fun spin-off word games.</li>
+        <li><b>Solver</b>: get help finding possible answers.</li>
       </ul>
       <p className="text-sm text-[var(--muted)]">
         This site is a fan-made clone for educational purposes and is not

@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const nl: HomeContent = {
-  h1: "Wordle – Het ultieme woordraadspel",
+  h1: "Wordle: Het ultieme woordraadspel",
   intro:
     "Wordle is een dagelijkse puzzel waarin je zes pogingen hebt om een verborgen woord van vijf letters te raden. Na elke poging veranderen de vakjes van kleur om aan te geven hoe dichtbij je bent: groen voor een letter op de juiste plek, geel voor een letter die in het woord zit maar op een andere plek, en grijs voor een letter die helemaal niet in het woord voorkomt. Elke dag verschijnt er een nieuwe puzzel en iedereen speelt hetzelfde woord.",
   howToTitle: "Hoe speel je Wordle",
@@ -35,7 +35,7 @@ export const nl: HomeContent = {
     { title: "Start met een sterk woord", body: "Kies een woord dat meerdere veelvoorkomende letters bevat: een evenwichtige mix van klinkers en frequente medeklinkers geeft de meeste informatie in één poging." },
     { title: "Let op de positie", body: "Een geel vakje vertelt je dat de letter in het woord zit, alleen niet waar je hem hebt geplaatst. Probeer volgende keer een andere positie en houd het in je hoofd bij." },
     { title: "Gebruik grijze letters niet opnieuw", body: "Zodra een letter grijs is, heb je hem volledig uitgesloten. Een gok verspillen aan een woord dat hem bevat is gewoon een verloren beurt." },
-    { title: "Zoek naar letterpatronen", body: "Elke taal kent terugkerende vormen — vaste uitgangen, gangbare voorvoegsels — die opmerken zet vaak de laatste vakjes vast." },
+    { title: "Zoek naar letterpatronen", body: "Elke taal kent terugkerende vormen, zoals vaste uitgangen en gangbare voorvoegsels. Die opmerken zet vaak de laatste vakjes vast." },
     { title: "Probeer vertrouwde woorden", body: "Als meerdere letters passen, ga voor alledaagse woorden. Het antwoord is bijna nooit obscuur." },
     { title: "Sluit groepen vroeg uit", body: "Gebruik je tweede of derde gok om nieuwe letters te testen, ook als je daarmee niet kunt winnen. Vijf letters extra uitsluiten loont meestal." },
     { title: "Blijf rustig en denk na", body: "Er is geen klok. Vertraag bij de laatste twee pogingen en loop de overgebleven kandidaten in gedachten af voor je bevestigt." },

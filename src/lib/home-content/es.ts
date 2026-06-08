@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const es: HomeContent = {
-  h1: "Wordle – El juego definitivo de adivinar palabras",
+  h1: "Wordle: El juego definitivo de adivinar palabras",
   intro:
     "Wordle es un puzle diario en el que tienes seis intentos para adivinar una palabra oculta de cinco letras. Después de cada intento, las casillas cambian de color para mostrarte lo cerca que estás: verde si la letra está en la posición correcta, amarillo si la letra está en la palabra pero en otro lugar, y gris si la letra no está en la palabra. Cada día se publica un puzle nuevo y todos jugamos la misma palabra.",
   howToTitle: "Cómo jugar a Wordle",
@@ -35,7 +35,7 @@ export const es: HomeContent = {
     { title: "Empieza con una palabra fuerte", body: "Elige una palabra que cubra varias letras comunes: una mezcla equilibrada de vocales y consonantes frecuentes te dará la máxima información en un solo intento." },
     { title: "Presta atención a la posición", body: "Una casilla amarilla te dice que la letra está en la palabra, pero no donde la colocaste. Prueba en otra posición la próxima vez y lleva la cuenta mental." },
     { title: "No reutilices letras grises", body: "Cuando una letra es gris la has descartado por completo. Gastar un intento en una palabra que la contiene es perder un turno." },
-    { title: "Busca patrones de letras", body: "El idioma tiene muchas formas recurrentes — terminaciones comunes, prefijos habituales — y reconocerlas suele fijar las últimas casillas." },
+    { title: "Busca patrones de letras", body: "El idioma tiene muchas formas recurrentes, como terminaciones comunes y prefijos habituales, y reconocerlas suele fijar las últimas casillas." },
     { title: "Prueba palabras familiares", body: "Cuando varias letras encajan, decántate por palabras de uso diario. La respuesta casi nunca es rara." },
     { title: "Descarta grupos de letras pronto", body: "Usa el segundo o tercer intento para probar letras nuevas aunque no puedas ganar la ronda. Eliminar cinco letras más suele compensar." },
     { title: "Mantén la calma y piensa", body: "No hay reloj. Tómate tu tiempo en los dos últimos intentos y repasa los candidatos restantes antes de confirmar." },

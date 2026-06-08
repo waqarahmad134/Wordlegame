@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Game } from "@/components/game/Game";
+import { GameArticle } from "@/components/games/GameArticle";
 import { maxGuessesForLength } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo-content";
 
@@ -17,15 +18,18 @@ export default async function UnlimitedPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  await params;
+  const { locale } = await params;
   const length = 5;
   return (
-    <Game
-      mode="unlimited"
-      length={length}
-      maxGuesses={maxGuessesForLength(length)}
-      title="Wordle Unlimited"
-      showNewGame
-    />
+    <>
+      <Game
+        mode="unlimited"
+        length={length}
+        maxGuesses={maxGuessesForLength(length)}
+        title="Wordle Unlimited"
+        showNewGame
+      />
+      <GameArticle slug="unlimited" locale={locale} />
+    </>
   );
 }

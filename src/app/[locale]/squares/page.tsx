@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Squares } from "@/components/games/Squares";
+import { GameArticle } from "@/components/games/GameArticle";
 import { pageMetadata } from "@/lib/seo-content";
 
 export async function generateMetadata({
@@ -11,6 +12,16 @@ export async function generateMetadata({
   return pageMetadata(locale, "/squares");
 }
 
-export default function SquaresPage() {
-  return <Squares />;
+export default async function SquaresPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return (
+    <>
+      <Squares />
+      <GameArticle slug="squares" locale={locale} />
+    </>
+  );
 }

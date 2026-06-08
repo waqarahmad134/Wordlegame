@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const tr: HomeContent = {
-  h1: "Wordle – Nihai Kelime Tahmin Oyunu",
+  h1: "Wordle: Nihai Kelime Tahmin Oyunu",
   intro:
     "Wordle, gizli beş harfli bir kelimeyi tahmin etmek için altı hakkınızın olduğu günlük bir kelime bulmacasıdır. Her tahminden sonra kareler renk değiştirerek ne kadar yaklaştığınızı gösterir: doğru yerdeki harf için yeşil, kelimede bulunan ama yanlış yerde olan harf için sarı ve kelimede hiç bulunmayan harf için gri. Her gün yepyeni bir bulmaca açılır ve herkes aynı kelimeyi oynar.",
   howToTitle: "Wordle nasıl oynanır",
@@ -32,10 +32,10 @@ export const tr: HomeContent = {
     "Wordle birçok dilde mevcuttur. Her sürümün kendi sözlüğü ve klavye düzeni vardır; en iyi bildiğiniz dilde oynayabilirsiniz.",
   tipsTitle: "Wordle oynamak için ipuçları",
   tips: [
-    { title: "Güçlü bir kelimeyle başlayın", body: "Birkaç yaygın harfi kapsayan bir kelime seçin — sesli harfler ve sık ünsüzlerin dengeli karışımı tek bir tahminden en fazla bilgiyi verir." },
+    { title: "Güçlü bir kelimeyle başlayın", body: "Birkaç yaygın harfi kapsayan bir kelime seçin. Sesli harfler ve sık ünsüzlerin dengeli karışımı tek bir tahminden en fazla bilgiyi verir." },
     { title: "Konuma dikkat edin", body: "Sarı bir kare, harfin kelimede olduğunu ama yerleştirdiğiniz yerde olmadığını söyler. Bir sonrakinde farklı bir yer deneyin ve aklınızda tutun." },
     { title: "Gri harfleri tekrar kullanmayın", body: "Bir harf gri olduğunda onu tamamen elemişsinizdir. İçeren bir kelimeye tahmin harcamak yalnızca sıra kaybetmektir." },
-    { title: "Harf desenlerini arayın", body: "Her dilin yinelenen biçimleri vardır — yaygın son ekler, alışılmış ön ekler — ve bunları fark etmek genellikle son kareleri yerine kilitler." },
+    { title: "Harf desenlerini arayın", body: "Her dilin yaygın son ekler ve alışılmış ön ekler gibi yinelenen biçimleri vardır ve bunları fark etmek genellikle son kareleri yerine kilitler." },
     { title: "Tanıdık kelimeleri deneyin", body: "Birden fazla harf uyduğunda günlük kelimelere yönelin. Cevap neredeyse hiçbir zaman belirsiz değildir." },
     { title: "Erken harf gruplarını eleyin", body: "İkinci veya üçüncü tahmininizi turu kazanamayacak olsanız bile yeni harfleri test etmek için kullanın. Beş harf daha elemek genellikle değer." },
     { title: "Sakin kalın ve düşünün", body: "Saat yok. Son iki tahminde yavaşlayın ve onaylamadan önce kalan adayları aklınızdan geçirin." },

@@ -51,7 +51,7 @@ export function Solver() {
         </label>
 
         <Field
-          label={`Correct positions (green) — use _ for unknown, e.g. "c_a_e"`}
+          label={`Correct positions (green): use _ for unknown, e.g. "c_a_e"`}
           value={pattern}
           onChange={(v) =>
             setPattern(v.toLowerCase().replace(/[^a-z_]/g, "").slice(0, length))

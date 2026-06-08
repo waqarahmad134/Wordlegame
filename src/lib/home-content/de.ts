@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const de: HomeContent = {
-  h1: "Wordle – Das ultimative Wort-Ratespiel",
+  h1: "Wordle: Das ultimative Wort-Ratespiel",
   intro:
     "Wordle ist ein tägliches Worträtsel, bei dem du sechs Versuche hast, ein verstecktes Wort aus fünf Buchstaben zu erraten. Nach jedem Versuch ändern die Kacheln ihre Farbe und zeigen, wie nah du dran bist: Grün für einen Buchstaben an der richtigen Stelle, Gelb für einen Buchstaben, der im Wort steht aber an anderer Stelle, und Grau für einen Buchstaben, der gar nicht im Wort vorkommt. Jeden Tag erscheint ein brandneues Rätsel und alle spielen dasselbe Wort.",
   howToTitle: "So spielst du Wordle",
@@ -35,7 +35,7 @@ export const de: HomeContent = {
     { title: "Beginne mit einem starken Wort", body: "Wähle ein Wort, das mehrere häufige Buchstaben abdeckt: eine ausgewogene Mischung aus Vokalen und häufigen Konsonanten liefert die meiste Information aus einem Versuch." },
     { title: "Achte auf die Position", body: "Eine gelbe Kachel sagt dir, dass der Buchstabe im Wort steht, aber nicht da, wo du ihn platziert hast. Probiere beim nächsten Versuch eine andere Stelle." },
     { title: "Nutze keine grauen Buchstaben erneut", body: "Sobald ein Buchstabe grau ist, hast du ihn komplett ausgeschlossen. Einen Versuch mit ihm zu verbrennen ist verschenkte Zeit." },
-    { title: "Suche nach Buchstabenmustern", body: "Sprachen haben viele wiederkehrende Formen — typische Endungen und Vorsilben. Sie zu erkennen schließt oft die letzten Kacheln ein." },
+    { title: "Suche nach Buchstabenmustern", body: "Sprachen haben viele wiederkehrende Formen wie typische Endungen und Vorsilben. Sie zu erkennen schließt oft die letzten Kacheln ein." },
     { title: "Setze auf vertraute Wörter", body: "Wenn mehrere Buchstaben passen, nimm Alltagswörter. Die Lösung ist fast nie obskur." },
     { title: "Schließe früh Gruppen aus", body: "Nutze den zweiten oder dritten Versuch, um neue Buchstaben zu testen, selbst wenn du damit nicht gewinnen kannst. Fünf weitere ausgeschlossen sind oft mehr wert." },
     { title: "Bleib ruhig und denk nach", body: "Es gibt keine Uhr. Werde bei den letzten beiden Versuchen langsamer und gehe die verbleibenden Kandidaten im Kopf durch." },

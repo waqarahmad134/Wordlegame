@@ -41,6 +41,53 @@ export function faqJsonLd(items: { q: string; a: string }[]) {
   };
 }
 
+/**
+ * Full structured-data graph for a single game/article page: the game as a
+ * WebApplication with an AggregateRating, a BreadcrumbList back to the home
+ * puzzle, and an FAQPage built from the on-page questions. Feed it the same
+ * data that is rendered so the markup and schema stay in sync.
+ */
+export function gamePageJsonLd(
+  locale: string,
+  game: {
+    name: string;
+    path: string;
+    description: string;
+    ratingValue: number;
+    ratingCount: number;
+    faq: { q: string; a: string }[];
+  },
+) {
+  const url = `${SITE_URL}/${locale}${game.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        name: game.name,
+        url,
+        applicationCategory: "GameApplication",
+        operatingSystem: "Any",
+        browserRequirements: "Requires JavaScript",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        description: game.description,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: game.ratingValue,
+          ratingCount: game.ratingCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      },
+      breadcrumbJsonLd(locale, [
+        { name: "Wordle", path: "" },
+        { name: game.name, path: game.path },
+      ]),
+      faqJsonLd(game.faq),
+    ],
+  };
+}
+
 /** Breadcrumb structured data for sub-pages. */
 export function breadcrumbJsonLd(
   locale: string,

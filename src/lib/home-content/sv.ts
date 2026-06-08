@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const sv: HomeContent = {
-  h1: "Wordle – Det ultimata ordgissningsspelet",
+  h1: "Wordle: Det ultimata ordgissningsspelet",
   intro:
     "Wordle är ett dagligt ordpussel där du har sex försök på dig att gissa ett dolt fembokstavsord. Efter varje gissning byter rutorna färg för att visa hur nära du är: grön för en bokstav på rätt plats, gul för en bokstav som finns i ordet men på fel plats, och grå för en bokstav som inte finns i ordet alls. Varje dag släpps ett nytt pussel och alla spelar samma ord.",
   howToTitle: "Så spelar du Wordle",
@@ -32,10 +32,10 @@ export const sv: HomeContent = {
     "Wordle finns på många språk. Varje version använder sin egen ordlista och tangentbordslayout, så du kan spela på det språk du kan bäst.",
   tipsTitle: "Tips för att spela Wordle",
   tips: [
-    { title: "Börja med ett starkt ord", body: "Välj ett ord som täcker flera vanliga bokstäver — en balanserad mix av vokaler och vanliga konsonanter ger mest information från en gissning." },
+    { title: "Börja med ett starkt ord", body: "Välj ett ord som täcker flera vanliga bokstäver. En balanserad mix av vokaler och vanliga konsonanter ger mest information från en gissning." },
     { title: "Tänk på positionen", body: "En gul ruta säger att bokstaven finns i ordet, men inte där du satte den. Pröva en annan plats nästa gång och håll koll i huvudet." },
     { title: "Återanvänd inte gråa bokstäver", body: "När en bokstav är grå har du uteslutit den helt. Att slösa en gissning på ett ord med den är bara en bortkastad runda." },
-    { title: "Leta efter bokstavsmönster", body: "Varje språk har återkommande former — vanliga ändelser, kända prefix — och att märka dem låser ofta fast de sista rutorna." },
+    { title: "Leta efter bokstavsmönster", body: "Varje språk har återkommande former, som vanliga ändelser och kända prefix, och att märka dem låser ofta fast de sista rutorna." },
     { title: "Pröva vanliga ord", body: "När flera bokstäver passar, luta åt vardagliga ord. Svaret är nästan aldrig obskyrt." },
     { title: "Uteslut grupper av bokstäver tidigt", body: "Använd din andra eller tredje gissning för att testa nya bokstäver även om du inte kan vinna rundan. Att eliminera fem bokstäver till brukar löna sig." },
     { title: "Var lugn och tänk efter", body: "Det finns ingen klocka. Sakta ner på de sista två gissningarna och gå igenom kvarvarande kandidater i huvudet innan du bekräftar." },

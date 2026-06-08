@@ -1,7 +1,7 @@
 import type { HomeContent } from "./types";
 
 export const id: HomeContent = {
-  h1: "Wordle – Permainan Tebak Kata Terbaik",
+  h1: "Wordle: Permainan Tebak Kata Terbaik",
   intro:
     "Wordle adalah teka-teki harian dengan enam kesempatan untuk menebak kata tersembunyi berisi lima huruf. Setelah setiap tebakan, kotak berubah warna untuk menunjukkan seberapa dekat Anda: hijau untuk huruf di posisi yang tepat, kuning untuk huruf yang ada di kata tetapi di posisi lain, dan abu-abu untuk huruf yang sama sekali tidak ada di kata. Teka-teki baru muncul setiap hari, dan semua orang bermain dengan kata yang sama.",
   howToTitle: "Cara bermain Wordle",
@@ -32,10 +32,10 @@ export const id: HomeContent = {
     "Wordle tersedia dalam banyak bahasa. Setiap versi menggunakan kamus dan tata letak keyboard sendiri, sehingga Anda dapat bermain dalam bahasa yang paling Anda kuasai.",
   tipsTitle: "Tips bermain Wordle",
   tips: [
-    { title: "Mulai dengan kata yang kuat", body: "Pilih kata yang mencakup beberapa huruf umum — perpaduan seimbang antara vokal dan konsonan sering memberi informasi paling banyak dari satu tebakan." },
+    { title: "Mulai dengan kata yang kuat", body: "Pilih kata yang mencakup beberapa huruf umum. Perpaduan seimbang antara vokal dan konsonan sering memberi informasi paling banyak dari satu tebakan." },
     { title: "Perhatikan posisi", body: "Kotak kuning memberi tahu bahwa hurufnya ada di kata, hanya tidak di tempat Anda meletakkannya. Coba posisi lain di tebakan berikutnya dan catat di kepala." },
     { title: "Jangan gunakan kembali huruf abu-abu", body: "Begitu huruf menjadi abu-abu, Anda sudah benar-benar menyingkirkannya. Membuang tebakan pada kata yang mengandungnya hanya menghabiskan giliran." },
-    { title: "Cari pola huruf", body: "Setiap bahasa memiliki bentuk berulang — akhiran umum, awalan yang familier — dan menyadarinya sering mengunci kotak-kotak terakhir." },
+    { title: "Cari pola huruf", body: "Setiap bahasa memiliki bentuk berulang, seperti akhiran umum dan awalan yang familier, dan menyadarinya sering mengunci kotak-kotak terakhir." },
     { title: "Coba kata yang familiar", body: "Saat beberapa huruf cocok, condongkan ke kata sehari-hari. Jawabannya hampir tidak pernah aneh." },
     { title: "Eliminasi kelompok huruf lebih awal", body: "Gunakan tebakan kedua atau ketiga untuk menguji huruf baru meskipun tidak bisa menang. Menyingkirkan lima huruf lain biasanya sepadan." },
     { title: "Tetap tenang dan pikirkan", body: "Tidak ada jam. Melambatlah di dua tebakan terakhir dan tinjau kandidat yang tersisa di kepala sebelum mengonfirmasi." },
